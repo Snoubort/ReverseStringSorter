@@ -2,6 +2,7 @@
 #include "..\StringClass\StringLib.h"
 #include <list>
 
+
 bool ReverseOrderCustomStrComporator(const String& leftStr, const String& rightStr);
 bool ReverseOrderStlStrComporator(const std::string& leftStr, const std::string& rightStr);
 void ReadDataInLists(std::list<String>& customStrings, std::list<std::string>& stlStrings, size_t number);
@@ -16,9 +17,11 @@ int main(int argc, char* argv[])
 }
 
 void ReadDataInLists(std::list<String>& customStrings, std::list<std::string>& stlStrings, size_t number) {
-    char* s = new char[256];
+    char* s = new char[2048];
+    std::cin.getline(s, 1);
+    
     for (int i = 0; i < number; i++) {
-        std::cin >> s;
+        std::cin.getline(s, 2048);
         customStrings.push_back(String(s));
         stlStrings.push_back(s);
     }
